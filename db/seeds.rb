@@ -39,7 +39,10 @@
     name: '13. #33 Separated Data Layer'
   },
   {
-    name: '14. #34 ?'
+    name: '14. #34 p5 with UI'
+  },
+  {
+    name: '15. #35 Previous p5 Sketch on HTML'
   }
 ]
 
