@@ -36,7 +36,10 @@
     name: '12. #32 Canvas Basics'
   },
   {
-    name: '13. #33 Data Layer'
+    name: '13. #33 Separated Data Layer'
+  },
+  {
+    name: '14. #34 ?'
   }
 ]
 
