@@ -61,6 +61,9 @@
   },
   {
     name: '21. #41 Displacement / Not finished, copied from Git'
+  },
+  {
+    name: '22. #42 Displacement with UI on React'
   }
 ]
 
