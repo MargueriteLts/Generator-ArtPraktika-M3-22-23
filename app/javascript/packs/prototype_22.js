@@ -3,10 +3,6 @@ import { sample, getRandomArbitrary } from '../prototypes/utilities'
 
 const canvasSize = 1000
 
-const n = getRandomArbitrary(3, 60)
-// const percent = r * canvasSize / 100
-// const w = [percent, 'px'].join('')
-
 const xCenter = canvasSize / 2
 const yCenter = canvasSize / 2
 
@@ -16,8 +12,9 @@ let b = 0
 
 function drawShapes(p) {
   //w = width of center circle
-    const w = n * canvasSize / 100
+    const w = getRandomArbitrary(10, 60) * canvasSize / 100
 
+    //Need optimisation here
     const paddingW = 30
     const paddingH = 50
 
@@ -62,7 +59,7 @@ function sketch(p) {
     g = getRandomArbitrary(0, 255)
     b = getRandomArbitrary(0, 255)
 
-    const bgCircleWidth = getRandomArbitrary(100, canvasSize)
+    const bgCircleWidth = getRandomArbitrary(100, (canvasSize - 30))
 
     p.fill(r, g, b)
 
