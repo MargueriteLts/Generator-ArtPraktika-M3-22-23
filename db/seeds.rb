@@ -43,6 +43,24 @@
   },
   {
     name: '15. #35 Previous p5 Sketch on HTML'
+  },
+  {
+    name: '16. #36 Previous p5 Sketch(14/34) with slider'
+  },
+  {
+    name: '17. #37 Tiling 1'
+  },
+  {
+    name: '18. #38 Tiling 2'
+  },
+  {
+    name: '19. #39 Tiling 2 with UI - todo'
+  },
+  {
+    name: '20. #40 Circles'
+  },
+  {
+    name: '21. #41 '
   }
 ]
 
