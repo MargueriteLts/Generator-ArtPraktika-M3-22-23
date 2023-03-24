@@ -1,0 +1,37 @@
+body.prototype_body_25 {
+  .wrapper {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .resetButton {
+    height: 100px;
+    width: 500px;
+    line-height: 40px;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    padding-top: 25px;
+    background-color: black;
+    cursor: pointer;
+    font-size: 50px;
+    color: white;
+    border-radius: 50px;
+  }
+  .resetButton :active {
+    background-color: grey;
+  }
+}
+
+#prototype_25 {
+  display: flex;
+  width: 100%;
+
+  canvas {
+    margin: auto;
+  }
+}

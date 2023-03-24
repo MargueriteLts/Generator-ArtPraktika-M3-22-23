@@ -64,6 +64,15 @@
   },
   {
     name: '22 / 2. Random background'
+  },
+  {
+    name: '23 / 3. Random img'
+  },
+  {
+    name: '24 / 4. Random background + img & redraw on mousepress'
+  },
+  {
+    name: '25 / 5. Previous + UI'
   }
 ]
 

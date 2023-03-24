@@ -36,6 +36,7 @@ function sketch(p) {
     if (clearCanvas) {
       p.background(0)
       clearCanvas = false
+      console.log(clearCanvas)
     }
 
     if (colorSwitch) {
@@ -94,6 +95,7 @@ function renderUI() {
 
   resetButton.addEventListener('click', () => {
     clearCanvas = true
+    console.log(clearCanvas)
   })
 
   sliderWrapper.appendChild(slider)
