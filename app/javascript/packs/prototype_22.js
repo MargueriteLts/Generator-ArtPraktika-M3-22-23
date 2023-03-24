@@ -3,55 +3,25 @@ import { sample, getRandomArbitrary } from '../prototypes/utilities'
 
 const canvasSize = 1000
 
-const r = getRandomArbitrary(3, 60)
+const n = getRandomArbitrary(3, 60)
 // const percent = r * canvasSize / 100
 // const w = [percent, 'px'].join('')
 
-//p.ellipse(x, y, w, [h])
+const xCenter = canvasSize / 2
+const yCenter = canvasSize / 2
 
-function sketch(p) {
-  
-  p.setup = () => {
-    const canvas = p.createCanvas(canvasSize, canvasSize)
-    canvas.parent('prototype_22')
+let r = 0
+let g = 0
+let b = 0
 
-    //Need to add disc picture in bgTypes
-    const bgTypes = ['color', 'shapes', 'circle']
-    const bg = sample(bgTypes)
-    
-    p.background(0)
-    p.fill(0, 148, 255)
-
-    switch (type) {
-      case 'color':
-        r = getRandomArbitrary(0, 255)
-        g = getRandomArbitrary(0, 255)
-        b = getRandomArbitrary(0, 255)
-        p.background(r, g, b)
-        break;
-      case 'shapes':
-        p.line(600, 0, 0, 600)
-        break;
-      case 'cross':
-        p.line(0, 0, 600, 600)
-        p.line(600, 0, 0, 600)
-        break;
-
-      default:
-        break;
-    }
-  }
-  
-  p.draw = () => {
-    //w = width of center circle
-    const w = r * canvasSize / 100
+function drawShapes(p) {
+  //w = width of center circle
+    const w = n * canvasSize / 100
 
     const paddingW = 30
     const paddingH = 50
 
     const wCircle = w - paddingW
-    const xCenter = canvasSize / 2
-    const yCenter = canvasSize / 2
 
     const xCenterER1 = xCenter + (w / 2) + 65
     const xCenterEL1 = xCenter - (w / 2) - 65
@@ -74,7 +44,45 @@ function sketch(p) {
     p.ellipse(yCenter, xCenterEL1, wCircle, wEV1)
     p.ellipse(yCenter, xCenterER2, hEV1, wEV2)
     p.ellipse(yCenter, xCenterEL2, hEV1, wEV2)
+}
+
+function sketch(p) {
+  
+  p.setup = () => {
+    const canvas = p.createCanvas(canvasSize, canvasSize)
+    canvas.parent('prototype_22')
+
+    //Need to add disc picture in bgTypes
+    const bgTypes = ['color', 'shapes', 'circle']
+    const bg = sample(bgTypes)
+    
+    p.background(0)
+
+    r = getRandomArbitrary(0, 255)
+    g = getRandomArbitrary(0, 255)
+    b = getRandomArbitrary(0, 255)
+
+    const bgCircleWidth = getRandomArbitrary(100, canvasSize)
+
+    p.fill(r, g, b)
+
+    switch (bg) {
+      case 'color':
+        p.background(r, g, b)
+        break;
+      case 'shapes':
+        drawShapes(p)
+        break;
+      case 'circle':
+        p.ellipse(xCenter, yCenter, bgCircleWidth)
+        break;
+
+      default:
+        break;
+    }
   }
+  
+  // p.draw = () => {}
 }
 
 document.addEventListener('DOMContentLoaded', () =>{
