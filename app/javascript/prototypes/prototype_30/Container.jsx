@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SC_ToggleButton from './SC_ToggleButton'
 import Button from './Button'
+import MyInput from './MyInput'
 
 export default class Container extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class Container extends Component {
     const { resetDraw } = this.state
     return (
       <div className="interface">
-        <Button
+        <SC_ToggleButton
           text="Reset design"
           isOn={resetDraw}
           handleClick={this.handleResetAction}
@@ -63,17 +64,17 @@ export default class Container extends Component {
 
     return (
       <div className="interface">
-        <Button
+        <SC_ToggleButton
           text="Reset Color"
           isOn={resetColor}
           handleClick={this.handleResetColor}
         />
-        <Button
+        <SC_ToggleButton
           text="Reset Shapes"
           isOn={resetShapes}
           handleClick={this.handleResetShapes}
         />
-        <Button
+        <SC_ToggleButton
           text="Reset Circle"
           isOn={resetCircle}
           handleClick={this.handleResetCircle}
@@ -112,6 +113,29 @@ export default class Container extends Component {
     })
   }
 
+  /////////////////////////////////// TXT
+
+  // function generateText() {
+  //   // const { strings, sides } = model.texts
+  //   // const string = sample(strings)
+  //   // const side = sample(sides)
+
+  //   const wrapper = document.createElement('div')
+  //   wrapper.classList.add('textWrapper')
+
+  //   const text = document.createElement('div')
+  //   text.innerText = 'Blablabla'
+  //   text.contentEditable = true
+  //   text.classList.add('text')
+
+  //   wrapper.appendChild(text)
+  //   container.appendChild(wrapper)
+  // }
+
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
 
 
   ////////////////////////////////////////////////////////////////
@@ -121,7 +145,12 @@ export default class Container extends Component {
 
     return (
       <div className="Container">
-        <div className="sketch" id="sketch"></div>
+        <div className="CoverFrame">
+          <div className="sketch" id="sketch"></div>
+          <MyInput
+            handleChange={this.handleChange}
+          />
+        </div>
         <div className="UIframe">
           <div className="interface">
             <SC_ToggleButton

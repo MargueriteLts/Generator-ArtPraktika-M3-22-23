@@ -202,7 +202,6 @@ function sketch(p) {
   p.setup = () => {
     const canvas = p.createCanvas(canvasSize, canvasSize)
     canvas.parent(canvasContainerId)
-    // console.log('ResetDraw', resetDraw)
 
     drawAll(p)
   }

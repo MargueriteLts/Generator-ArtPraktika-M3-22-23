@@ -84,7 +84,10 @@
     name: '28 / 7. Continuing Prototype 5 - Working React for Reset button'
   },
   {
-    name: '29 / 8. Continuing Prototype 28 - Try toggle render UI: FullRandom/Choice'
+    name: '29 / 8. Continuing Prototype 28 - Toggle render UI: FullRandom/ChoiceRandom'
+  },
+  {
+    name: '30 / 9. Continuing Prototype 29 - Try add Text'
   }
 ]
 

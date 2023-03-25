@@ -3,9 +3,9 @@ import { sample, getRandomArbitrary } from '../prototypes/utilities'
 import { model } from '../prototypes/prototype_10/model'
 
 import {
+  setBackgroundColorClass,
   getLargeCircleStore,
-  setLargeCircleStore,
-  setBackgroundColorClass
+  setLargeCircleStore
 } from '../prototypes/prototype_10/store'
 
 Number.prototype.times = function (cb) {
@@ -20,60 +20,31 @@ Number.prototype.times = function (cb) {
 
 let container
 
-// выбрать цвет фона
-
-// указать сторону, размер кругов и цвет
-
-// определить рэнджи для каждого параметра
-// и каждой стороны/размера
-
-// сгенерировать CSS
-
-// создать текстовый блок (contenteditable)
-
-// сгенерировать положение текстового блока
-
-// сгенерировать текст (выбрать из массива)
-
-// указать блоку текст и CSS
-
-// выбрать цвет дипфейса
-
-// в CSS сверстать дипфейса
-
-function generateBackground() {
-  return new Promise((resolve, reject) => { 
-    const background = sample(model.background)
-    container.classList.add(background)
-    setBackgroundColorClass(background)
-
-    resolve()
-   })
-}
-
 function generateLargeCircle() {
   return new Promise((resolve, reject) => {
-    // const largeCircleStore = getLargeCircleStore()
+    const largeCircleStore = getLargeCircleStore()
     const { sides, sizes } = model.largeCircles
     const vSides = Object.keys(sides.vSides)
     const hSides = Object.keys(sides.hSides)
-    const sizesKeys = Object.keys(sizes)
+    const sizeKeys = Object.keys(sizes)
 
+    // prettier-ignore
     ;(2).times((i) => {
       const vSide = sample(vSides)
       const hSide = sample(hSides)
-      const size = sample(sizesKeys)
+      const size = sample(sizeKeys)
+
       const vSideParams = sides.vSides[vSide]
       const hSideParams = sides.hSides[hSide]
       const sizeParams = sizes[size]
-      // const sizeParams = sizesKeys[size] ????
       const sizeInPixels = getRandomArbitrary(sizeParams.from, sizeParams.to) + 'px'
+      // console.log('SIDES', vSide, hSide)
 
       // Генерируем HTML
 
       const circle = document.createElement('div')
       circle.classList.add('largeCircle')
-      
+
       if (vSide === 'top') {
         circle.style.top = getRandomArbitrary(vSideParams.from, vSideParams.to) + 'px'
       }
@@ -95,11 +66,23 @@ function generateLargeCircle() {
 
       container.appendChild(circle)
 
-      //Обновляем данные
+      // Обновляем данные
 
       vSides.splice(vSides.indexOf(vSide), 1)
       hSides.splice(hSides.indexOf(hSide), 1)
+
+      // console.log(vSides, hSides)
     })
+
+    resolve()
+  })
+}
+
+function generateBackground() {
+  return new Promise((resolve, reject) => {
+    const background = sample(model.background)
+    container.classList.add(background)
+    setBackgroundColorClass(background)
 
     resolve()
   })
@@ -123,15 +106,11 @@ function generateText() {
   container.appendChild(wrapper)
 }
 
-////////////////////////////////
-
 function generateStory() {
-  // generateLargeCircles().then(check)
   // prettier-ignore
   generateBackground()
-  .then(generateLargeCircle)
-  .then(generateText)
-  // .then(checkRect)
+    .then(generateLargeCircle)
+    .then(generateText)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
