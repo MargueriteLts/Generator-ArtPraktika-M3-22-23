@@ -73,6 +73,18 @@
   },
   {
     name: '25 / 5. Previous + UI'
+  },
+  {
+    name: '26 / Prototype 42 from Github'
+  },
+  {
+    name: '27 / 6. Continuing Prototype 5 - try to implement choice of background & random without react not working yet'
+  },
+  {
+    name: '28 / 7. Continuing Prototype 5 - Working React for Reset button'
+  },
+  {
+    name: '29 / 8. Continuing Prototype 28 - Try toggle render UI: FullRandom/Choice'
   }
 ]
 

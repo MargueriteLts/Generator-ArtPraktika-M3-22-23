@@ -117,6 +117,7 @@ function drawAll(p) {
   const shoeImg = sample(shoes)
   // const mouseX = p.mouseX
   // const mouseY = p.mouseY
+  // p.image(shoeImg, 0, 0, width, height, 0, 0, shoeImg.width, shoeImg.height, CONTAIN, LEFT) => not working :((((
   p.image(shoeImg, 0, 0)
 }
 

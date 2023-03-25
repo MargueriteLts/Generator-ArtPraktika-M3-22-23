@@ -1,0 +1,52 @@
+body.prototype_body_27 {
+  .wrapper {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    .wrapper1 {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+  }
+  }
+
+  .toggleSwitch {
+    margin-right: 20px;
+
+    &.active {
+      background-color: green;
+    }
+  }
+
+  .button,
+  .toggleSwitch {
+    height: 100px;
+    width: 500px;
+    line-height: 40px;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    padding-top: 25px;
+    color: black;
+    cursor: pointer;
+    font-size: 50px;
+    background-color: white;
+    border-radius: 50px;
+  }
+}
+
+#prototype_27 {
+  display: flex;
+  width: 100%;
+  background-color: black;
+
+  canvas {
+    margin: auto;
+  }
+}
