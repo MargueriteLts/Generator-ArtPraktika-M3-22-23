@@ -106,6 +106,12 @@
   },
   {
     name: '36 / 15. Continuing Prototype 33 - WORKINNNGGGGG'
+  },
+  {
+    name: '37 / 16. Continuing Prototype 36 - ameliorations for typo'
+  },
+  {
+    name: '38 / 17. Continuing Prototype 37 - Stop constant random of typo'
   }
 ]
 
