@@ -87,7 +87,16 @@
     name: '29 / 8. Continuing Prototype 28 - Toggle render UI: FullRandom/ChoiceRandom'
   },
   {
-    name: '30 / 9. Continuing Prototype 29 - Try add Text'
+    name: '30 / 9. Continuing Prototype 29 - Try add Text with react component (jai reussi a placer le txt par dessus, mais linput marche pas bien)'
+  },
+  {
+    name: '31 / 9. Continuing Prototype 30 - input area on artwork'
+  },
+  {
+    name: '32 / 10. Continuing Prototype 31 - input on the side'
+  },
+  {
+    name: '33 / 11. Continuing Prototype 32 - Random typo'
   }
 ]
 

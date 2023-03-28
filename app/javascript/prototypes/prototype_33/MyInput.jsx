@@ -3,10 +3,10 @@ import React, { PureComponent } from 'react'
 
 export default class MyInput extends PureComponent {
   constructor(props) {
-    super(props);
-    this.state = {
-      value: 'Fuck Nudes Send Techno'
-    };
+    super(props)
+    // this.state = {
+    //   value: 'F*ck Nudes Send Techno'
+    // };
   }
 
   // function generateText() {
@@ -35,7 +35,8 @@ export default class MyInput extends PureComponent {
     // const { value } = this.state.value
 
     return (
-      <input className={'Input'} value={value} onChange={handleChange} ></input>
+      // <input className={'Input'} type="textarea" rows={3} value={value} onChange={handleChange} maxLength={22} ></input>
+      <input className={'Input'} value={value} onChange={handleChange} maxLength={22} ></input>
     )
   }
 }

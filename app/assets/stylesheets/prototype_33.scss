@@ -1,0 +1,173 @@
+@import url('https: //fonts.googleapis.com/css?family=Bangers|Bevan|Bungee+Inline|Cabin+Sketch|Caveat|Fredoka+One|Gloria+Hallelujah|Gochi+Hand|Hanalei+Fill|Kdam+Thmor|Libre+Barcode+39+Text|Luckiest+Guy|Major+Mono+Display|Orbitron|Permanent+Marker|Press+Start+2P|Rokkitt|Satisfy|Secular+One|Shrikhand" rel="stylesheet');
+
+#prototype_33 {
+  display: flex;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+
+  .Container {
+    display: flex;
+    margin: auto;
+
+  // .textWrapper {
+  //     display: flex;
+  //     width: 80%;
+  //     left: 10%;
+  //     height: 80%;
+  //     top: 10%;
+  
+  //     .text {
+  //       width: 100%;
+  //       font-family: ADC;
+  //       text-transform: uppercase;
+  //       text-align: center;
+  //       font-size: 60px;
+  //       line-height: 140%;
+  //     }
+  //   }
+
+    .CoverFrame {
+      position: relative;
+
+      .text {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+        font-size: 250px;
+        line-height: 1;
+        text-align: center;
+      }
+    }
+    
+    .UIframe {
+      width: 100%;
+      padding: 40px;
+      flex-direction: column;
+
+      .Input {
+        // position: absolute;
+        background-color: transparent;
+        color: white;
+        border: solid white 1px;
+        outline: none;
+        width: 100%;
+        top: 0;
+        // height: 100%;
+        text-align: center;
+        font-size: 80px;
+      }
+
+      .interface {
+        width: 100%;
+        padding: 40px;
+      }
+    }
+
+    .SC_ToggleButton {
+      margin: 10px 0;
+      padding: 12px 32px;
+      font-size: 50px;
+      text-align: center;
+      text-transform: capitalize;
+      background-color: var(--light-grey);
+      color: var(--black);
+      cursor: pointer;
+      user-select: none;
+      border-radius: 25px;
+
+      &:hover:not(.active) {
+        background-color: var(--grey);
+      }
+
+      &.active {
+        font-weight: 800;
+        color: var(--black);
+        background-color: var(--dark-green);
+        cursor: default;
+      }
+    }
+  }
+
+  .libre {
+    font-family: 'Libre Barcode 39 Text', cursive;
+  }
+
+  .major {
+    font-family: 'Major Mono Display', monospace;
+  }
+
+  .hanalei {
+    font-family: 'Hanalei Fill', cursive;
+  }
+
+  .kdam {
+    font-family: 'Kdam Thmor', cursive;
+  }
+
+  .secular {
+    font-family: 'Secular One', sans-serif;
+  }
+
+  .gloria {
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+
+  .permanent {
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  .rokkitt {
+    font-family: 'Rokkitt', serif;
+  }
+
+  .satisfy {
+    font-family: 'Satisfy', cursive;
+  }
+
+  .caveat {
+    font-family: 'Caveat', cursive;
+  }
+
+  .orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .luckiest {
+    font-family: 'Luckiest Guy', cursive;
+  }
+
+  .fredoka {
+    font-family: 'Fredoka One', cursive;
+  }
+
+  .bangers {
+    font-family: 'Bangers', cursive;
+  }
+
+  .gochi {
+    font-family: 'Gochi Hand', cursive;
+  }
+
+  .press {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .bevan {
+    font-family: 'Bevan', cursive;
+  }
+
+  .shrikhand {
+    font-family: 'Shrikhand', cursive;
+  }
+
+  .bungee {
+    font-family: 'Bungee Inline', cursive;
+  }
+
+  .cabin {
+    font-family: 'Cabin Sketch', cursive;
+  }
+}
