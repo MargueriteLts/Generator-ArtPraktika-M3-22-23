@@ -15,15 +15,14 @@ export default class Container extends Component {
       resetColor,
       resetShapes,
       resetCircle,
-      phrase,
-      // spansHTML,
-      // resetTypefaces
+      phrase
     }
   }
 
   componentDidMount() {
+    /////????? c'est quoi sketch dans la parenthese??????
     this.props.initSketch('sketch')
-    // this.props.letters('text')
+    this.props.letters('text')
   }
 
   ////////Render bouton reset
@@ -64,7 +63,7 @@ export default class Container extends Component {
 
   /////Render choices buttons
   renderUIResetChoices = () => {
-    const { resetColor, resetShapes, resetCircle, resetTypefaces } = this.state
+    const { resetColor, resetShapes, resetCircle } = this.state
 
     return (
       <div className="interface">
@@ -82,11 +81,6 @@ export default class Container extends Component {
           text="Reset Circle"
           isOn={resetCircle}
           handleClick={this.handleResetCircle}
-        />
-        <SC_ToggleButton
-          text="Reset Typo"
-          isOn={resetTypefaces}
-          handleClick={this.handleResetTypefaces}
         />
       </div>
     )
@@ -122,16 +116,6 @@ export default class Container extends Component {
     })
   }
 
-  handleResetTypefaces = () => {
-    const { setStoreResetTypefaces } = this.props
-    const { resetTypefaces } = this.state
-    setStoreResetTypefaces(!resetTypefaces)
-
-    this.setState({
-      resetTypefaces: resetTypefaces
-    })
-  }
-
   /////////////////////////////////// TXT
 
   // function generateText() {
@@ -151,6 +135,17 @@ export default class Container extends Component {
   //   container.appendChild(wrapper)
   // }
 
+
+  // handleChange = (event) => {
+  //   const { phrase } = this.state
+  //   const { setStorePhrase } = this.props
+  //   setStorePhrase(event.target.value)
+  //   // console.log(event.target.value)
+  //   this.setState({
+  //     phrase : event.target.value
+  //   })
+  // }
+
   // handleChange = (event) => {
   //   this.setState({
   //     value: event.target.value
@@ -160,41 +155,6 @@ export default class Container extends Component {
   // renderText = () => {
     
   // }
-
-    handleChange = (event) => {
-    const { phrase } = this.state
-    // const { setStorePhrase } = this.props
-    // setStorePhrase(event.target.value)
-    this.letters(event.target.value)
-    // console.log(event.target.value)
-    this.setState({
-      phrase : event.target.value
-    })
-  }
-
-  letters = (coverText) => {
-    const typefaces = ["poppins", "fasthand"]
-    let spanElements = []
-
-    let text = coverText
-
-    text.split("").map(function(character) {
-      const typefaceClass = typefaces[Math.floor(Math.random() * typefaces.length)]
-      spanElements.push("<span class='" + typefaceClass + "'>" + character + "</span>")
-    })
-
-    console.log(spanElements)
-
-    let spansHTML = spanElements.join("")
-
-    console.log(spansHTML)
-
-    return spansHTML
-    // setStorePhrase(spansHTML)
-    // this.setState({
-    //   phrase : spansHTML
-    // })
-  }
 
 
 
@@ -207,8 +167,7 @@ export default class Container extends Component {
       <div className="Container">
         <div className="CoverFrame">
           <div className="sketch" id="sketch"></div>
-          {/* <div className="wrapper">Here should be rendered my spans</div> */}
-          <div className="wrapper">{phrase}</div>
+          <div className="text">{this.letters}</div>
         </div>
         <div className="UIframe">
           <MyInput

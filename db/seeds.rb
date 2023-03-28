@@ -84,19 +84,25 @@
     name: '28 / 7. Continuing Prototype 5 - Working React for Reset button'
   },
   {
-    name: '29 / 8. Continuing Prototype 28 - Toggle render UI: FullRandom/ChoiceRandom'
+    name: '29 / 8. Continuing Prototype 7 - Toggle render UI: FullRandom/ChoiceRandom'
   },
   {
-    name: '30 / 9. Continuing Prototype 29 - Try add Text with react component (jai reussi a placer le txt par dessus, mais linput marche pas bien)'
+    name: '30 / 9. Continuing Prototype 8 - Try add Text with react component (jai reussi a placer le txt par dessus, mais linput marche pas bien)'
   },
   {
-    name: '31 / 9. Continuing Prototype 30 - input area on artwork'
+    name: '31 / 10. Continuing Prototype 9 - input area on artwork'
   },
   {
-    name: '32 / 10. Continuing Prototype 31 - input on the side'
+    name: '32 / 11. Continuing Prototype 10 - input on the side'
   },
   {
-    name: '33 / 11. Continuing Prototype 32 - Random typo'
+    name: '33 / 12. Continuing Prototype 11 - Random typo - Not workin, je sais pas comment afficher mes spans'
+  },
+  {
+    name: '34 / 13. Continuing Prototype 12 - Random typo - working but not working.... I managed to otobrajat span mais en text....Bon jsp jppALdmnkvbcfjzsdfcxvjmgbhnzdkhfgbjnlsedwujikgtrhytysruFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'
+  },
+  {
+    name: '35 / 14. Continuing Prototype 12 - '
   }
 ]
 

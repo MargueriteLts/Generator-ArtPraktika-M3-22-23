@@ -165,7 +165,8 @@ export default class Container extends Component {
     const { phrase } = this.state
     // const { setStorePhrase } = this.props
     // setStorePhrase(event.target.value)
-    this.letters(event.target.value)
+    // this.letters(event.target.value)
+    // this.renderSpan(event.target.value)
     // console.log(event.target.value)
     this.setState({
       phrase : event.target.value
@@ -189,12 +190,31 @@ export default class Container extends Component {
 
     console.log(spansHTML)
 
-    return spansHTML
+    // return spansHTML
     // setStorePhrase(spansHTML)
     // this.setState({
-    //   phrase : spansHTML
+    //   spansHTML : spansHTML
     // })
   }
+
+  renderSpans = (text) => {
+    // const { spansHTML } = this.state
+    this.letters(text)
+    return (
+      spansHTML
+    )
+  }
+
+  renderSpans = () => {
+    // const { spansHTML } = this.state
+    return (
+      <div className="wrapper">
+        {this.letters()}
+      </div>
+    )
+  }
+
+
 
 
 
@@ -207,8 +227,7 @@ export default class Container extends Component {
       <div className="Container">
         <div className="CoverFrame">
           <div className="sketch" id="sketch"></div>
-          {/* <div className="wrapper">Here should be rendered my spans</div> */}
-          <div className="wrapper">{phrase}</div>
+          {this.renderSpans(this.handleChange())}
         </div>
         <div className="UIframe">
           <MyInput

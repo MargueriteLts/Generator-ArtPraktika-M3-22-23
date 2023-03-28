@@ -7,7 +7,7 @@ export default class Container extends Component {
   constructor(props) {
     super(props)
 
-    const { resetDraw, fullRandom, resetColor, resetShapes, resetCircle, phrase } = props
+    const { resetDraw, fullRandom, resetColor, resetShapes, resetCircle, phrase, resetTypefaces } = props
 
     this.state = {
       resetDraw,
@@ -17,13 +17,13 @@ export default class Container extends Component {
       resetCircle,
       phrase,
       // spansHTML,
-      // resetTypefaces
+      resetTypefaces
     }
   }
 
   componentDidMount() {
     this.props.initSketch('sketch')
-    // this.props.letters('text')
+    this.props.letters('text')
   }
 
   ////////Render bouton reset
@@ -162,9 +162,9 @@ export default class Container extends Component {
   // }
 
     handleChange = (event) => {
-    const { phrase } = this.state
-    // const { setStorePhrase } = this.props
-    // setStorePhrase(event.target.value)
+    // const { phrase } = this.state
+    const { setStorePhrase } = this.props
+    setStorePhrase(event.target.value)
     this.letters(event.target.value)
     // console.log(event.target.value)
     this.setState({
@@ -172,29 +172,25 @@ export default class Container extends Component {
     })
   }
 
-  letters = (coverText) => {
-    const typefaces = ["poppins", "fasthand"]
-    let spanElements = []
+  // letters = (coverText) => {
+  //   const typefaces = ["poppins", "fasthand"]
+  //   let spanElements = []
 
-    let text = coverText
+  //   let text = coverText
 
-    text.split("").map(function(character) {
-      const typefaceClass = typefaces[Math.floor(Math.random() * typefaces.length)]
-      spanElements.push("<span class='" + typefaceClass + "'>" + character + "</span>")
-    })
+  //   text.split("").map(function(character) {
+  //     const typefaceClass = typefaces[Math.floor(Math.random() * typefaces.length)]
+  //     spanElements.push("<span class='" + typefaceClass + "'>" + character + "</span>")
+  //   })
 
-    console.log(spanElements)
+  //   console.log(spanElements)
 
-    let spansHTML = spanElements.join("")
+  //   let spansHTML = spanElements.join("")
 
-    console.log(spansHTML)
+  //   console.log(spansHTML)
 
-    return spansHTML
-    // setStorePhrase(spansHTML)
-    // this.setState({
-    //   phrase : spansHTML
-    // })
-  }
+  //   return spansHTML
+  // }
 
 
 
@@ -207,8 +203,7 @@ export default class Container extends Component {
       <div className="Container">
         <div className="CoverFrame">
           <div className="sketch" id="sketch"></div>
-          {/* <div className="wrapper">Here should be rendered my spans</div> */}
-          <div className="wrapper">{phrase}</div>
+          <div className="wrapper">{/*Here should be rendered my spans*/}</div>
         </div>
         <div className="UIframe">
           <MyInput

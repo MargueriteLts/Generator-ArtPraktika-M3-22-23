@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SC_ToggleButton from './SC_ToggleButton'
 import Button from './Button'
 import MyInput from './MyInput'
+import { sample, getRandomArbitrary } from '../utilities'
 
 export default class Container extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class Container extends Component {
       resetShapes,
       resetCircle,
       phrase,
+      // myArray : ''
       // spansHTML,
       // resetTypefaces
     }
@@ -166,36 +168,109 @@ export default class Container extends Component {
     // const { setStorePhrase } = this.props
     // setStorePhrase(event.target.value)
     this.letters(event.target.value)
+    // this.renderSpan(event.target.value)
     // console.log(event.target.value)
     this.setState({
       phrase : event.target.value
     })
   }
 
-  letters = (coverText) => {
+  // letters = () => {
+  //   const { phrase } = this.state
+  //   const typefaces = ["poppins", "fasthand"]
+  //   let spanElements = []
+
+  //   let text = phrase
+
+  //   text.split("").map(function(character) {
+  //     const typefaceClass = typefaces[Math.floor(Math.random() * typefaces.length)]
+  //     spanElements.push("<span class='" + typefaceClass + "'>" + character + "</span>")
+  //   })
+
+  //   console.log(spanElements)
+
+  //   let spansHTML = spanElements.join("")
+
+  //   console.log(spansHTML)
+
+  //   return ({spansHTML})
+
+  //   // return (
+  //   //   <div className="wrapper">
+  //   //     {spansHTML}
+  //   //   </div>
+  //   // )
+  // }
+
+
+  // letters = () => {
+  //   const { phrase } = this.state
+  //   const typefaces = ["poppins", "fasthand"]
+  //   let spanElements = []
+  //   const typo = sample(typefaces)
+
+  //   let text = phrase
+
+  //   let myArray = text.split("")
+
+  //   for (let i = 0; i < myArray.length; i++) {
+  //     const element = myArray[i].classList.add(typo);
+  //     // element.classList.add(typo);
+  //     spanElements.push(element)
+  //   }
+
+  //   console.log(spanElements)
+
+  //   let spansHTML = spanElements.join("")
+
+  //   console.log(spansHTML)
+
+  //   return ({spansHTML})
+  // }
+
+
+
+
+
+  // letters = () => {
+  //   const { phrase, myArray } = this.state
+
+  //   myArray = phrase.split("")
+
+  //   this.setState({
+  //     myArray: myArray
+  //   })
+  // }
+
+
+
+
+
+  letters = () => {
+    const { phrase } = this.state
     const typefaces = ["poppins", "fasthand"]
-    let spanElements = []
+    const randomClassName = sample(typefaces)
 
-    let text = coverText
-
-    text.split("").map(function(character) {
-      const typefaceClass = typefaces[Math.floor(Math.random() * typefaces.length)]
-      spanElements.push("<span class='" + typefaceClass + "'>" + character + "</span>")
+    const myArray = phrase.split("")
+    myArray.map((item) => {
+      return (
+        <span className={randomClassName}>{item}</span>
+      )
     })
-
-    console.log(spanElements)
-
-    let spansHTML = spanElements.join("")
-
-    console.log(spansHTML)
-
-    return spansHTML
-    // setStorePhrase(spansHTML)
-    // this.setState({
-    //   phrase : spansHTML
-    // })
   }
 
+  // renderResetButton = () => {
+  //   const { resetDraw } = this.state
+  //   return (
+  //     <div className="interface">
+  //       <SC_ToggleButton
+  //         text="Reset design"
+  //         isOn={resetDraw}
+  //         handleClick={this.handleResetAction}
+  //       />
+  //     </div>
+  //   )
+  // }
 
 
   ////////////////////////////////////////////////////////////////
@@ -207,8 +282,13 @@ export default class Container extends Component {
       <div className="Container">
         <div className="CoverFrame">
           <div className="sketch" id="sketch"></div>
-          {/* <div className="wrapper">Here should be rendered my spans</div> */}
-          <div className="wrapper">{phrase}</div>
+          <div className="wrapper">{this.letters()}</div>
+          {/* <div className="wrapper">{this.handleChange}</div> */}
+          {/* <div className="wrapper">
+            { myArray.map((item) => {
+              return <span className={randomClassName}>{item}</span>;
+            }) }
+          </div> */}
         </div>
         <div className="UIframe">
           <MyInput

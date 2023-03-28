@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Container from '../prototypes/prototype_33/Container'
-import { initSketch } from '../prototypes/prototype_33/sketch'
+import Container from '../prototypes/prototype_34/Container'
+import { initSketch } from '../prototypes/prototype_34/sketch'
 // import { letters } from '../prototypes/prototype_33/letters'
 
 import {
@@ -22,7 +22,7 @@ import {
   // getStoreSpan,
   // setStoreTypefaces,
   // getStoreTypefaces
-} from '../prototypes/prototype_33/store'
+} from '../prototypes/prototype_34/store'
 
 const props = {
   resetDraw: getStoreReset(),
@@ -47,7 +47,7 @@ const actions = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('prototype_33')
+  const container = document.getElementById('prototype_34')
   ReactDOM.render(
     <Container initSketch={initSketch} {...props} {...actions} />,
     container
