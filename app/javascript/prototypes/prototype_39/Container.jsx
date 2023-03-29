@@ -24,10 +24,7 @@ export default class Container extends Component {
   }
 
   componentDidMount() {
-    // const { isMainOpen } = this.state
-    // { isMainOpen ? this.renderMain() : ''}
-    this.props.initSketch('sketch')
-    this.renderMain()
+    this.props.initSketch('sketch', 'sketch2')
   }
 
   ////////Render bouton reset
@@ -155,12 +152,6 @@ export default class Container extends Component {
 
     setStoreMyArray(myArray)
 
-    // return (
-    //   <div className="wrapper">
-    //     {myArray}
-    //   </div>
-    // )
-
     this.setState({
       myArray : myArray
     })
@@ -171,67 +162,49 @@ export default class Container extends Component {
 
   closeMain = () => {
     this.setState({
-      isMainOpen: false
-    })
-  }
-
-  openMain = () => {
-    // const { isEditorOpen } = this.props
-    this.setState({
-      isMainOpen: true
+      isMainOpen : false
     })
   }
 
   renderMain = () => {
     return (
-      <div className='MainFrame'>
-        {/* <div className="sketch" id="sketch2"></div> */}
-        <div>
-          <SC_Button
-            text="Начать творчество"
-            handleClick={this.closeMain}
-            className='StartButton'
-          />
-        </div>
+      <div className='Main'>
+        <div className="sketch" id="sketch2"></div>
+        <SC_Button
+          text="Start editing"
+          className="StartButton"
+          handleClick={this.closeMain}
+        />
       </div>
     )
   }
-
-  //////
 
   render() {
     const { fullRandom, phrase, myArray, isMainOpen } = this.state
 
     return (
       <div className="Container">
-        {isMainOpen ? this.renderMain() : ''}
-        <SC_Button
-            text="Назад"
-            handleClick={this.openMain}
-            className='BackButton'
-          />
-
-        <div className="CoverFrame">
-          <div className="sketch" id="sketch"></div>
-          <div className='wrapper'>{myArray}</div>
-          {/* {this.coverLetters()} */}
-        </div>
-
-        <div className="UIframe">
-          <MyInput
-            handleChange={this.handleChange}
-            value={phrase}
-          />
-          <div className="interface">
-            <SC_ToggleButton
-              text="Toggle Full Random"
-              isOn={fullRandom}
-              handleClick={this.handleToggleRandom}
-            />
+        { isMainOpen ? this.renderMain() : ''}
+        <div className="Editor">
+          <div className="CoverFrame">
+            <div className="sketch" id="sketch"></div>
+            <div className='wrapper'>{myArray}</div>
           </div>
-          {fullRandom ? this.renderResetButton() : this.renderUIResetChoices() }
+          <div className="UIframe">
+            <MyInput
+              handleChange={this.handleChange}
+              value={phrase}
+            />
+            <div className="interface">
+              <SC_ToggleButton
+                text="Toggle Full Random"
+                isOn={fullRandom}
+                handleClick={this.handleToggleRandom}
+              />
+            </div>
+            {fullRandom ? this.renderResetButton() : this.renderUIResetChoices() }
+          </div>
         </div>
-
       </div>
     )
   }

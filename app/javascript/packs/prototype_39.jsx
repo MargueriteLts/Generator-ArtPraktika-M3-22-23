@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Container from '../prototypes/prototype_38/Container'
-import { initSketch } from '../prototypes/prototype_38/sketch'
+import Container from '../prototypes/prototype_39/Container'
+import { initSketch } from '../prototypes/prototype_39/sketch'
 
 import {
   getStoreFullRandom,
@@ -19,7 +19,7 @@ import {
   getStorePhrase,
   setStoreMyArray,
   getStoreMyArray
-} from '../prototypes/prototype_38/store'
+} from '../prototypes/prototype_39/store'
 
 const props = {
   resetDraw: getStoreReset(),
@@ -42,7 +42,7 @@ const actions = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('prototype_38')
+  const container = document.getElementById('prototype_39')
   ReactDOM.render(
     <Container initSketch={initSketch} {...props} {...actions} />,
     container

@@ -111,7 +111,10 @@
     name: '37 / 16. Continuing Prototype 36 - ameliorations for typo'
   },
   {
-    name: '38 / 17. Continuing Prototype 37 - Stop constant random of typo'
+    name: '38 / 17. Continuing Prototype 37 - Stop constant random of typo + I tried to make main page but no'
+  },
+  {
+    name: '39 / 18. Continuing Prototype 38'
   }
 ]
 

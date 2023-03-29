@@ -20,6 +20,7 @@ import vans from '../../../assets/images/vans.png'
 import disc from '../../../assets/images/disc.png'
 
 let canvasContainerId = ''
+let canvasContainerId2 = ''
 
 // let canvasSize = ''
 
@@ -177,12 +178,11 @@ function bgCircle(p) {
 // }
 
 /////
-// function shoeImg(p) {
-//   shoes = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
-//   const shoeImg = sample(shoes)
-//   p.image(shoeImg, 0, 0)
-//   shoeImg.resize(1000, 1000)
-// }
+function shoeImg(p) {
+  shoes = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
+  const shoeImg = sample(shoes)
+  p.image(shoeImg, 0, 0, widthimg, heightimg)
+}
 
 //////////////////////////////////////////////////
 
@@ -234,11 +234,48 @@ function sketch(p) {
   }
 }
 
-function initSketch(id) {
+/////////////////////////////////
+
+function main(p) {
+
+  p.preload = () => {
+    img1 = p.loadImage(ballerines);
+    img2 = p.loadImage(bequille);
+    img3 = p.loadImage(chaussette);
+    img4 = p.loadImage(claquettes);
+    img5 = p.loadImage(costume);
+    img6 = p.loadImage(drmartens);
+    img7 = p.loadImage(escarpin);
+    img8 = p.loadImage(jordans);
+    img9 = p.loadImage(mocassins);
+    img10 = p.loadImage(newbalance);
+    img11= p.loadImage(pied);
+    img12 = p.loadImage(salon);
+    img13 = p.loadImage(stansmith);
+    img14 = p.loadImage(tn);
+    img15 = p.loadImage(vans);
+    imgDisc = p.loadImage(disc);
+  }
+  
+  p.setup = () => {
+    const canvas = p.createCanvas(canvasSize, canvasSize)
+    canvas.parent(canvasContainerId2)
+    p.frameRate(5)
+  }
+
+  p.draw = () => {
+      drawAll(p)
+  }
+}
+
+
+function initSketch(id, id2) {
   canvasContainerId = id
+  canvasContainerId2 = id2
   // canvasSize = id.width
   // canvasSize = id.style.width
   new p5(sketch)
+  new p5(main)
 }
 
 export { initSketch }
