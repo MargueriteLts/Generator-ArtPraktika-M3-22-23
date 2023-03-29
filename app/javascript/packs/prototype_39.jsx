@@ -41,6 +41,8 @@ const actions = {
   setStoreMyArray
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('prototype_39')
   ReactDOM.render(

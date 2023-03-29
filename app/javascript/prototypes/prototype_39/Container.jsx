@@ -3,13 +3,13 @@ import SC_ToggleButton from './SC_ToggleButton'
 import SC_Button from './SC_Button'
 import Button from './Button'
 import MyInput from './MyInput'
-import { sample } from '../utilities'
+import { sample, generateHash } from '../utilities'
 
 export default class Container extends Component {
   constructor(props) {
     super(props)
 
-    const { resetDraw, fullRandom, resetColor, resetShapes, resetCircle, phrase, myArray } = props
+    const { resetDraw, fullRandom, resetColor, resetShapes, resetCircle, resetShoes, phrase, myArray } = props
 
     this.state = {
       resetDraw,
@@ -17,6 +17,7 @@ export default class Container extends Component {
       resetColor,
       resetShapes,
       resetCircle,
+      resetShoes,
       phrase,
       myArray : phrase,
       isMainOpen : true
@@ -67,7 +68,7 @@ export default class Container extends Component {
 
   /////Render choices buttons
   renderUIResetChoices = () => {
-    const { resetColor, resetShapes, resetCircle, resetTypefaces } = this.state
+    const { resetColor, resetShapes, resetCircle, resetShoes } = this.state
 
     return (
       <div className="interface">
@@ -86,6 +87,11 @@ export default class Container extends Component {
           isOn={resetCircle}
           handleClick={this.handleResetCircle}
         />
+        {/* <SC_ToggleButton
+          text="Reset Shoes"
+          isOn={resetShoes}
+          handleClick={this.handleResetShoes}
+        /> */}
       </div>
     )
   }
@@ -120,27 +126,37 @@ export default class Container extends Component {
     })
   }
 
-  handleResetTypefaces = () => {
-    const { setStoreResetTypefaces } = this.props
-    const { resetTypefaces } = this.state
-    setStoreResetTypefaces(!resetTypefaces)
+  // handleResetShoes = () => {
+  //   const { setStoreResetShoes } = this.props
+  //   const { resetShoes } = this.state
+  //   setStoreResetShoes(!resetShoes)
 
-    this.setState({
-      resetTypefaces: resetTypefaces
-    })
-  }
+  //   this.setState({
+  //     resetShoes: resetShoes
+  //   })
+  // }
+
+  // handleResetTypefaces = () => {
+  //   const { setStoreResetTypefaces } = this.props
+  //   const { resetTypefaces } = this.state
+  //   setStoreResetTypefaces(!resetTypefaces)
+
+  //   this.setState({
+  //     resetTypefaces: resetTypefaces
+  //   })
+  // }
 
   ///////////////////////////////////
 
     handleChange = (event) => {
     // this.coverLetters(event.target.value)
-    this.coverLetters()
+    this.coverLetters(event.target.value)
     this.setState({
       phrase : event.target.value
     })
   }
 
-  ///////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
   coverLetters = () => {
     const { setStoreMyArray } = this.props
@@ -157,6 +173,13 @@ export default class Container extends Component {
     })
   }
 
+  ////////////////////
+
+  // downloadImage= () => {
+  //   const { p5instance } = this.props
+  //   p5instance.saveCanvas(canvas, `Prototype-39-${generateHash()}`, 'png')
+  // }
+
 
   ////////////////////////////////////////////////////////////////
 
@@ -169,12 +192,14 @@ export default class Container extends Component {
   renderMain = () => {
     return (
       <div className='Main'>
-        <div className="sketch" id="sketch2"></div>
+        <div className='Title'>ГЕНЕРАТОР МУЗЫКАЛЬНЫХ ОБЛОЖЕК</div>
+        {/* <div className='Array'>{myArray}</div> */}
         <SC_Button
           text="Start editing"
           className="StartButton"
           handleClick={this.closeMain}
         />
+        <div className="sketch" id="sketch2"></div>
       </div>
     )
   }
@@ -203,6 +228,11 @@ export default class Container extends Component {
               />
             </div>
             {fullRandom ? this.renderResetButton() : this.renderUIResetChoices() }
+            {/* <SC_Button
+              text="Download pic"
+              className="StartButton"
+              handleClick={this.downloadImage()}
+            /> */}
           </div>
         </div>
       </div>

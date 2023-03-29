@@ -3,10 +3,19 @@ let resetDraw = false
 let resetColor = false
 let resetShapes = false
 let resetCircle = false
-let phrase = 'F*ck nudes send techno'
+let resetShoes = false
+let phrase = 'Forever Dancing'
 let myArray = []
 // let spansHTML
-let resetTypefaces = false
+// let resetTypefaces = false
+
+function getStoreResetShoes() {
+  return resetShoes
+}
+
+function setStoreResetShoes(data) {
+  resetShoes = data
+}
 
 function getStoreTypefaces() {
   return resetTypefaces
@@ -106,5 +115,7 @@ export {
   getStoreTypefaces,
   setStoreTypefaces,
   getStoreMyArray,
-  setStoreMyArray
+  setStoreMyArray,
+  getStoreResetShoes,
+  setStoreResetShoes
 }

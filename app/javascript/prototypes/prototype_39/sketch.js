@@ -1,6 +1,6 @@
 import p5 from 'p5'
 import { sample, getRandomArbitrary } from '../utilities'
-import { getStoreReset, setStoreReset, getStoreResetColor, setStoreResetColor, getStoreResetShapes, setStoreResetShapes, getStoreResetCircle, setStoreResetCircle } from './store'
+import { getStoreReset, setStoreReset, getStoreResetColor, setStoreResetColor, getStoreResetShapes, setStoreResetShapes, getStoreResetCircle, setStoreResetCircle, setStorePhrase, getStoreResetShoes, setStoreResetShoes } from './store'
 
 import ballerines from '../../../assets/images/ballerines.png'
 import bequille from '../../../assets/images/bequille.png'
@@ -22,16 +22,22 @@ import disc from '../../../assets/images/disc.png'
 let canvasContainerId = ''
 let canvasContainerId2 = ''
 
-// let canvasSize = ''
+let canvasSize
 
-const canvasSize = 2000
-const widthimg = 2000
-const heightimg = 2000
+function canvasSizeVariant(csize) {
+  // let canvasSize
+  switch (csize) {
+    case 'big':
+      canvasSize = 2000
+      break;
+    case 'small':
+      canvasSize = 500
+      break;
 
-// let fullRandom = true
-// let resetDraw = false
-// let resetColor = false
-// let resetShapes = false
+    default:
+      break;
+  }
+}
 
 let img1
 let img2
@@ -51,9 +57,6 @@ let img15
 
 let imgDisc
 
-const xCenter = canvasSize / 2
-const yCenter = canvasSize / 2
-
 let r = 0
 let g = 0
 let b = 0
@@ -65,23 +68,25 @@ let bgTypes
 /////////////////////////////////////////////////////
 
 function drawShapes(p) {
+  const xCenter = canvasSize / 2
+  const yCenter = canvasSize / 2
   //w = width of center circle
   const w = getRandomArbitrary(10, 60) * canvasSize / 100
   
   //Need optimisation here
-  const paddingW = 30
-  const paddingH = 50
+  const paddingW = 3 * canvasSize / 100
+  const paddingH = 5 * canvasSize / 100
   
   const wCircle = w - paddingW
   
-  const xCenterER1 = xCenter + (w / 2) + 65
-  const xCenterEL1 = xCenter - (w / 2) - 65
-  const wEV1 = 130 - paddingW
-  const hEV1 = w + 260 - paddingH
+  const xCenterER1 = xCenter + (w / 2) + (6,5 * canvasSize / 100)
+  const xCenterEL1 = xCenter - (w / 2) - (6,5 * canvasSize / 100)
+  const wEV1 = (13 * canvasSize / 100) - paddingW
+  const hEV1 = w + (26 * canvasSize / 100) - paddingH
   
   const xCenterER2 = xCenterER1 + ((canvasSize - w) / 4)
   const xCenterEL2 = canvasSize - xCenterER2
-  const wEV2 = ((canvasSize - w) / 2) - 130 - paddingW
+  const wEV2 = ((canvasSize - w) / 2) - (13 * canvasSize / 100) - paddingW
   const hEV2 = canvasSize - paddingH
   
   p.ellipse(xCenter, yCenter, wCircle)
@@ -106,7 +111,10 @@ function drawAll(p) {
   g = getRandomArbitrary(0, 255)
   b = getRandomArbitrary(0, 255)
 
-  const bgCircleWidth = getRandomArbitrary(100, (canvasSize - 30))
+  const xCenter = canvasSize / 2
+  const yCenter = canvasSize / 2
+
+  const bgCircleWidth = getRandomArbitrary((canvasSize - 250), (canvasSize - 30))
   
   p.fill(r, g, b)
   
@@ -124,7 +132,7 @@ function drawAll(p) {
       break;
     case 'disc':
       p.background(0)
-      p.image(imgDisc, 0, 0, widthimg, heightimg)
+      p.image(imgDisc, 0, 0, canvasSize, canvasSize)
       break;
 
     default:
@@ -133,7 +141,7 @@ function drawAll(p) {
 
   shoes = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
   const shoeImg = sample(shoes)
-  p.image(shoeImg, 0, 0, widthimg, heightimg)
+  p.image(shoeImg, 0, 0, canvasSize, canvasSize)
 }
 
 /////////////////////////////////
@@ -148,6 +156,7 @@ function bgColor(p) {
 
 /////
 function bgShapes(p) {
+  // canvasSizeVariant('big')
   r = getRandomArbitrary(0, 255)
   g = getRandomArbitrary(0, 255)
   b = getRandomArbitrary(0, 255)
@@ -160,7 +169,10 @@ function bgShapes(p) {
 
 /////
 function bgCircle(p) {
-  const bgCircleWidth = getRandomArbitrary(100, (canvasSize - 30))
+  // canvasSizeVariant('big')
+  const xCenter = canvasSize / 2
+  const yCenter = canvasSize / 2
+  const bgCircleWidth = getRandomArbitrary(100, (canvasSize - (30 * canvasSize / 100)))
 
   r = getRandomArbitrary(0, 255)
   g = getRandomArbitrary(0, 255)
@@ -181,12 +193,15 @@ function bgCircle(p) {
 function shoeImg(p) {
   shoes = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
   const shoeImg = sample(shoes)
-  p.image(shoeImg, 0, 0, widthimg, heightimg)
+  p.image(shoeImg, 0, 0, canvasSize, canvasSize)
 }
 
 //////////////////////////////////////////////////
 
 function sketch(p) {
+  canvasSizeVariant('big')
+  // let shoeImgConst
+  // let bg
 
   p.preload = () => {
     img1 = p.loadImage(ballerines);
@@ -208,35 +223,56 @@ function sketch(p) {
   }
   
   p.setup = () => {
+    canvasSizeVariant('big')
     const canvas = p.createCanvas(canvasSize, canvasSize)
     canvas.parent(canvasContainerId)
 
     drawAll(p)
+    // shoeImg(p)
+    // getStoreResetShoes()
+    // shoeImgConst = shoeImg(p)
+    // bg = drawAll(p)
+    // setStoreResetShoes()
   }
-
+  
   p.draw = () => {
+    canvasSizeVariant('big')
     if (getStoreReset()) {
       drawAll(p)
       setStoreReset()
+      // bg = drawAll(p)
     } else if (getStoreResetColor()) {
+      // shoeImgConst
       bgColor(p)
       shoeImg(p)
+      // bg = bgColor(p)
       setStoreResetColor()
     } else if (getStoreResetShapes()) {
+      // shoeImgConst
       bgShapes(p)
       shoeImg(p)
+      // bg = bgShapes(p)
       setStoreResetShapes()
     } else if (getStoreResetCircle()) {
+      // shoeImgConst
       bgCircle(p)
       shoeImg(p)
+      // bg = bgShapes(p)
       setStoreResetCircle()
+    } else if (getStoreResetShoes()) {
+      shoeImg(p)
+      drawAll(p)
+      setStoreResetShoes()
+      // shoeImgConst = shoeImg(p)
+      // bg
     }
   }
 }
 
-/////////////////////////////////
+///////////////////////////////////////////////////
 
 function main(p) {
+  canvasSizeVariant('small')
 
   p.preload = () => {
     img1 = p.loadImage(ballerines);
@@ -258,24 +294,35 @@ function main(p) {
   }
   
   p.setup = () => {
+    canvasSizeVariant('small')
     const canvas = p.createCanvas(canvasSize, canvasSize)
     canvas.parent(canvasContainerId2)
-    p.frameRate(5)
+    p.frameRate(getRandomArbitrary(1, 10))
   }
 
   p.draw = () => {
-      drawAll(p)
+    canvasSizeVariant('small')
+    drawAll(p)
+
+    const strings = ['Dance all Night', 'Never Stop Dancing', 'Music is  life']
+    const string = sample(strings)
+    setStorePhrase(string)
   }
 }
-
 
 function initSketch(id, id2) {
   canvasContainerId = id
   canvasContainerId2 = id2
-  // canvasSize = id.width
-  // canvasSize = id.style.width
+
   new p5(sketch)
   new p5(main)
+  new p5(main)
+  new p5(main)
+  new p5(main)
+  new p5(main)
+  new p5(main)
+  new p5(main)
+  // p5instance = new p5(sketch)
 }
 
 export { initSketch }
