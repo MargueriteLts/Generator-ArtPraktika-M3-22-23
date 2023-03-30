@@ -117,7 +117,7 @@
     name: '39 / 18. Continuing Prototype 38 - <3'
   },
   {
-    name: '40 / 19. Continuing Prototype 39 - Try add save'
+    name: '40 / 19. Prototype 39 - Clean'
   }
 ]
 
