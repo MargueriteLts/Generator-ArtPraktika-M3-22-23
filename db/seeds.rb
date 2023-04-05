@@ -64,6 +64,9 @@
   },
   {
     name: '22. #42 Displacement with UI on React'
+  },
+  {
+    name: '23. #34 Displacement with UI on React WITH download'
   }
 ]
 
